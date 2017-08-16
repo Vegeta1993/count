@@ -13,3 +13,7 @@ This script is used to count the number of files according to its extension in a
 ## TODO
 
 - Find a way to reduce FP like for files with a . in its file name while not being file extension. 
+
+## Demo
+
+![demo](screenshot/count1.gif)
