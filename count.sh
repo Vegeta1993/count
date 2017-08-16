@@ -25,6 +25,26 @@ for i in `ls -l $loc| grep ^-|awk '{print $9}'|grep '\.'`; do
 	arr+=( ["$var"]=1 )
   fi
 done
+
+#Sorting
+
+max=0
 for key in ${!arr[@]}; do
-  echo -e "\033[0m Number of \033[0;32m${key}\033[0m is \033[0;32m${arr[${key}]}"
+  if [ ${arr[${key}]} -gt $max ];then
+  		max=${arr[${key}]}
+	  fi
 done
+rounds=${#arr[@]}
+until [ $rounds -lt 0 ]; do
+  for key in ${!arr[@]};do
+	if [ $max -eq ${arr[${key}]} ]; then
+	  echo -e "\033[0m Number of \t \033[0;32m${key}\033[0m \t:\t \033[0;32m${arr[${key}]}"
+	else
+	  continue
+	fi
+  done
+	((max--))
+	((rounds--))
+  continue
+done
+
