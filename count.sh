@@ -12,7 +12,7 @@ COMMENT1
 loc=$1
 ext=$2
 if [ $2 ]; then
-     count=`ls -la $1 | grep "$2" | wc -l`
+     count=`ls -l $loc| grep ^-|awk '{print $9}'|grep '\.'|grep $ext|wc -l`
 	 echo -e "\033[0m Number of \t \033[0;32m$2\033[0m \t:\t \033[0;32m$count"
 	 exit
 fi
